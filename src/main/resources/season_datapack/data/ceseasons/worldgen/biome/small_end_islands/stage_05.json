@@ -1,0 +1,34 @@
+{
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "minecraft:enderman",
+              "count": 4,
+              "weight": 10
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    }
+  },
+  "carvers": [],
+  "downfall": 0.5,
+  "effects": {
+    "water_color": "#3f76e4",
+    "grass_color": "#75a24e",
+    "foliage_color": "#629343",
+    "dry_foliage_color": "#b0a364"
+  },
+  "features": [
+    [
+      "minecraft:end_island_decorated"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 0.5
+}

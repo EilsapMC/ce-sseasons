@@ -1,0 +1,154 @@
+# Add ce_seasons:example_crop and ce_seasons:example_stem to agriculture.crops to opt in.
+# Replace original crop_block/stem_block; never chain a gate with the original growth behavior.
+items:
+  ce_seasons:example_crop_seed:
+    material: wheat_seeds
+    texture: minecraft:item/wheat_seeds
+    data:
+      item_name: '<!i><green>季相谷种'
+    behavior:
+      type: block_item
+      block: ce_seasons:example_crop
+  ce_seasons:example_stem_seed:
+    material: pumpkin_seeds
+    texture: minecraft:item/pumpkin_seeds
+    data:
+      item_name: '<!i><gold>季相瓜种'
+    behavior:
+      type: block_item
+      block: ce_seasons:example_stem
+blocks:
+  ce_seasons:example_crop:
+    settings:
+      hardness: 0
+      resistance: 0
+      item: ce_seasons:example_crop_seed
+      is_suffocating: false
+      is_redstone_conductor: false
+      push_reaction: destroy
+      tags: [minecraft:crops, minecraft:maintains_farmland]
+    behaviors:
+      - type: liquid_flowable_block
+      - type: bush_block
+        bottom_blocks: [minecraft:farmland]
+      - type: ce_seasons:season_crop
+        light_requirement: 9
+        grow_speed: 0.125
+        bone_meal_age_bonus: 2
+        is_bone_meal_target: true
+    loot:
+      pools:
+        - rolls: 1
+          entries:
+            - type: item
+              item: ce_seasons:example_crop_seed
+    states:
+      properties:
+        age: {type: int, default: 0, min: 0, max: 7}
+      appearances:
+        age=0: {state: 'wheat[age=0]'}
+        age=1: {state: 'wheat[age=1]'}
+        age=2: {state: 'wheat[age=2]'}
+        age=3: {state: 'wheat[age=3]'}
+        age=4: {state: 'wheat[age=4]'}
+        age=5: {state: 'wheat[age=5]'}
+        age=6: {state: 'wheat[age=6]'}
+        age=7: {state: 'wheat[age=7]'}
+      variants:
+        age=0: {appearance: 'age=0'}
+        age=1: {appearance: 'age=1'}
+        age=2: {appearance: 'age=2'}
+        age=3: {appearance: 'age=3'}
+        age=4: {appearance: 'age=4'}
+        age=5: {appearance: 'age=5'}
+        age=6: {appearance: 'age=6'}
+        age=7: {appearance: 'age=7'}
+  ce_seasons:example_stem:
+    settings:
+      hardness: 0
+      resistance: 0
+      item: ce_seasons:example_stem_seed
+      is_suffocating: false
+      is_redstone_conductor: false
+      push_reaction: destroy
+      tags: [minecraft:crops, minecraft:maintains_farmland]
+    behaviors:
+      - type: liquid_flowable_block
+      - type: bush_block
+        bottom_blocks: [minecraft:farmland]
+      - type: ce_seasons:season_stem
+        light_requirement: 9
+        fruit: minecraft:pumpkin
+        attached_stem: ce_seasons:example_attached_stem
+        fruit_bottom_blocks: [minecraft:farmland, minecraft:dirt, minecraft:grass_block]
+    loot:
+      pools:
+        - rolls: 1
+          entries:
+            - type: item
+              item: ce_seasons:example_stem_seed
+    states:
+      properties:
+        age: {type: int, default: 0, min: 0, max: 7}
+      appearances:
+        age=0: {state: 'pumpkin_stem[age=0]'}
+        age=1: {state: 'pumpkin_stem[age=1]'}
+        age=2: {state: 'pumpkin_stem[age=2]'}
+        age=3: {state: 'pumpkin_stem[age=3]'}
+        age=4: {state: 'pumpkin_stem[age=4]'}
+        age=5: {state: 'pumpkin_stem[age=5]'}
+        age=6: {state: 'pumpkin_stem[age=6]'}
+        age=7: {state: 'pumpkin_stem[age=7]'}
+      variants:
+        age=0: {appearance: 'age=0'}
+        age=1: {appearance: 'age=1'}
+        age=2: {appearance: 'age=2'}
+        age=3: {appearance: 'age=3'}
+        age=4: {appearance: 'age=4'}
+        age=5: {appearance: 'age=5'}
+        age=6: {appearance: 'age=6'}
+        age=7: {appearance: 'age=7'}
+  ce_seasons:example_attached_stem:
+    settings:
+      hardness: 0
+      resistance: 0
+      item: ce_seasons:example_stem_seed
+      is_suffocating: false
+      is_redstone_conductor: false
+      push_reaction: destroy
+      tags: [minecraft:maintains_farmland]
+    behaviors:
+      - type: liquid_flowable_block
+      - type: bush_block
+        bottom_blocks: [minecraft:farmland]
+      - type: attached_stem_block
+        fruit: minecraft:pumpkin
+        stem: ce_seasons:example_stem
+    loot:
+      pools:
+        - rolls: 1
+          entries:
+            - type: item
+              item: ce_seasons:example_stem_seed
+    states:
+      properties:
+        facing: {type: horizontal_direction, default: north}
+      appearances:
+        north: {state: 'attached_pumpkin_stem[facing=north]'}
+        east: {state: 'attached_pumpkin_stem[facing=east]'}
+        south: {state: 'attached_pumpkin_stem[facing=south]'}
+        west: {state: 'attached_pumpkin_stem[facing=west]'}
+      variants:
+        facing=north: {appearance: north}
+        facing=east: {appearance: east}
+        facing=south: {appearance: south}
+        facing=west: {appearance: west}
+recipes:
+  ce_seasons:example_crop_seed:
+    type: shapeless
+    ingredients: [minecraft:wheat_seeds, minecraft:paper]
+    result: {id: 'ce_seasons:example_crop_seed', count: 1}
+  ce_seasons:example_stem_seed:
+    type: shapeless
+    ingredients: [minecraft:pumpkin_seeds, minecraft:paper]
+    result: {id: 'ce_seasons:example_stem_seed', count: 1}

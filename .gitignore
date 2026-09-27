@@ -1,0 +1,22 @@
+.gradle/
+build/
+.idea/
+*.iml
+run/
+verification-runtime/
+local-dependencies/
+.cache/
+__pycache__/
+*.log
+
+# Local backups, generated archives, and obsolete repair scripts
+/backups/
+/content-pack/*.zip
+/ps.ps1
+.claude/settings.local.json
+
+# Local environment secrets (keep example templates)
+.env
+.env.*
+!.env.example
+!.env.sample

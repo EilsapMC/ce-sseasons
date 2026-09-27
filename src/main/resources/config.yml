@@ -1,0 +1,104 @@
+# CraftEngineSeasons — Minecraft/Folia 26.3 + CraftEngine 26.9.1
+# Registry/biome definitions and the CE content pack require a full server restart.
+clock:
+  day-ticks: 24000
+  days-per-sub-season: 8
+  # 0 chooses one of the twelve beginnings once; 1 is early spring.
+  starting-sub-season: 1
+  progress-while-empty: true
+  # Empty chooses the server's first NORMAL world as the shared clock.
+  source-world: ''
+worlds:
+  # Empty enables only the clock-source world. Entries may be UUIDs or exact names.
+  enabled: []
+storage:
+  save-interval-seconds: 60
+visual:
+  enabled: true
+  refresh-chunks-per-tick: 2
+  refresh-interval-ticks: 5
+climate:
+  enabled: true
+  weather: true
+  snow-and-ice: true
+  interval-ticks: 20
+  samples-per-player: 2
+  max-samples-per-run: 64
+  radius-chunks: 3
+  tropical-biomes:
+    - minecraft:desert
+    - minecraft:badlands
+    - minecraft:eroded_badlands
+    - minecraft:wooded_badlands
+    - minecraft:savanna
+    - minecraft:savanna_plateau
+    - minecraft:windswept_savanna
+    - minecraft:jungle
+    - minecraft:sparse_jungle
+    - minecraft:bamboo_jungle
+    - minecraft:mangrove_swamp
+    - minecraft:mushroom_fields
+  blacklisted-biomes:
+    - minecraft:the_void
+    - minecraft:lush_caves
+    - minecraft:dripstone_caves
+    - minecraft:deep_dark
+    - minecraft:ocean
+    - minecraft:deep_ocean
+    - minecraft:frozen_ocean
+    - minecraft:deep_frozen_ocean
+    - minecraft:cold_ocean
+    - minecraft:deep_cold_ocean
+    - minecraft:lukewarm_ocean
+    - minecraft:deep_lukewarm_ocean
+    - minecraft:warm_ocean
+    - minecraft:river
+    - minecraft:beach
+    - minecraft:stony_shore
+agriculture:
+  enabled: true
+  mode: slow
+  out-of-season-chance: 6
+  underground-y: 48
+  greenhouse-height: 16
+  excluded-worlds: []
+  infertile-biomes: []
+  unbreakable-crops: []
+  crops:
+    'minecraft:oak_sapling': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:red_mushroom': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:brown_mushroom': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:nether_wart': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:crimson_fungus': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:warped_fungus': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:cave_vines': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:cave_vines_plant': [SPRING, SUMMER, AUTUMN, WINTER]
+    'minecraft:birch_sapling': [SPRING, AUTUMN]
+    'minecraft:spruce_sapling': [SPRING, AUTUMN, WINTER]
+    'minecraft:cherry_sapling': [SPRING]
+    'minecraft:azalea': [SPRING, SUMMER]
+    'minecraft:flowering_azalea': [SPRING, SUMMER]
+    'minecraft:sweet_berry_bush': [SPRING, WINTER]
+    'minecraft:bamboo': [SPRING, SUMMER]
+    'minecraft:bamboo_sapling': [SPRING, SUMMER]
+    'minecraft:carrots': [SPRING, AUTUMN]
+    'minecraft:potatoes': [SPRING]
+    'minecraft:jungle_sapling': [SUMMER]
+    'minecraft:acacia_sapling': [SUMMER]
+    'minecraft:mangrove_leaves': [SUMMER]
+    'minecraft:mangrove_propagule': [SUMMER]
+    'minecraft:cactus': [SUMMER]
+    'minecraft:sugar_cane': [SUMMER]
+    'minecraft:wheat': [SUMMER, AUTUMN]
+    'minecraft:melon_stem': [SUMMER]
+    'minecraft:cocoa': [SUMMER]
+    'minecraft:torchflower_crop': [SUMMER]
+    'minecraft:pitcher_crop': [SUMMER]
+    'minecraft:pale_oak_sapling': [AUTUMN]
+    'minecraft:dark_oak_sapling': [AUTUMN]
+    'minecraft:pumpkin_stem': [AUTUMN]
+    'minecraft:beetroots': [AUTUMN]
+    'ce_seasons:example_crop': [SPRING, SUMMER]
+    'ce_seasons:example_stem': [SUMMER, AUTUMN]
+calendar:
+  update-interval-ticks: 40

@@ -1,0 +1,96 @@
+# Standalone CE 26.9.1 syntax; no dependency on default:* templates.
+items:
+  ce_seasons:calendar:
+    material: paper
+    model: ce_seasons:item/calendar/unknown
+    data:
+      item_name: '<!i><gold>季相日历'
+      lore:
+        - '<!i><gray>右键查看当地季节'
+    behavior:
+      type: ce_seasons:calendar
+  ce_seasons:season_sensor:
+    model: ce_seasons:block/season_sensor/spring
+    data:
+      item_name: '<!i><gold>季节传感器'
+      lore:
+        - '<!i><gray>空手右键：春 / 夏 / 秋 / 冬'
+        - '<!i><gray>每20区域刻更新，输出0—15弱信号'
+    behavior:
+      type: block_item
+      block: ce_seasons:season_sensor
+blocks:
+  ce_seasons:season_sensor:
+    settings:
+      hardness: 1.5
+      resistance: 3.0
+      item: ce_seasons:season_sensor
+      replaceable: false
+      is_redstone_conductor: false
+      is_suffocating: false
+      push_reaction: block
+      tags: [minecraft:mineable/pickaxe]
+    behavior:
+      type: ce_seasons:season_sensor
+    loot:
+      pools:
+        - rolls: 1
+          entries:
+            - type: item
+              item: ce_seasons:season_sensor
+    states:
+      properties:
+        mode:
+          type: int
+          default: 0
+          min: 0
+          max: 3
+        power:
+          type: int
+          default: 0
+          min: 0
+          max: 15
+      appearances:
+        spring:
+          auto_state: solid
+          model: ce_seasons:block/season_sensor/spring
+        summer:
+          auto_state: solid
+          model: ce_seasons:block/season_sensor/summer
+        autumn:
+          auto_state: solid
+          model: ce_seasons:block/season_sensor/autumn
+        winter:
+          auto_state: solid
+          model: ce_seasons:block/season_sensor/winter
+      variants:
+        mode=0:
+          appearance: spring
+        mode=1:
+          appearance: summer
+        mode=2:
+          appearance: autumn
+        mode=3:
+          appearance: winter
+recipes:
+  ce_seasons:calendar:
+    type: shaped
+    pattern: ['PPP', 'PCP', ' S ']
+    ingredients:
+      P: minecraft:paper
+      C: minecraft:clock
+      S: minecraft:stick
+    result:
+      id: ce_seasons:calendar
+      count: 1
+  ce_seasons:season_sensor:
+    type: shaped
+    pattern: [' G ', 'RCR', 'SSS']
+    ingredients:
+      G: minecraft:glass
+      R: minecraft:redstone
+      C: ce_seasons:calendar
+      S: minecraft:smooth_stone
+    result:
+      id: ce_seasons:season_sensor
+      count: 1

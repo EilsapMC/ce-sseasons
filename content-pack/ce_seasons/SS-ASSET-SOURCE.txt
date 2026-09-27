@@ -1,0 +1,5 @@
+Calendar and season sensor PNG files were copied from the operator's local SereneSeasons source tree.
+Original asset rights remain with their respective owners.
+The source LICENSE is retained as SS-SOURCE-LICENSE.txt.
+This import does not grant additional redistribution rights.
+Seasonal sky/fog/cloud presets are addon configuration, not imported SereneSeasons artwork.

@@ -1,0 +1,20 @@
+name: CraftEngineSeasons
+version: '${version}'
+main: dev.ceseasons.SeasonsPlugin
+bootstrapper: dev.ceseasons.bootstrap.SeasonsBootstrap
+api-version: '26.3'
+folia-supported: true
+description: Independent seasonal gameplay and visuals for CraftEngine on Folia 26.3
+dependencies:
+  server:
+    CraftEngine:
+      load: BEFORE
+      required: true
+      join-classpath: true
+permissions:
+  ceseasons.admin:
+    description: Manage seasonal time, configuration and items
+    default: op
+  ceseasons.query:
+    description: View current seasonal information
+    default: true

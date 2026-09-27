@@ -1,0 +1,56 @@
+{
+  "temperate": {
+    "spring": {
+      "sky": "#8FB9EF",
+      "fog": "#D3E3ED",
+      "cloud": "#CCFFF5F1"
+    },
+    "summer": {
+      "sky": "#75A9EF",
+      "fog": "#BED8EE",
+      "cloud": "#CCFFFFFF"
+    },
+    "autumn": {
+      "sky": "#9AADD0",
+      "fog": "#DFCCBC",
+      "cloud": "#CCEEDDD1"
+    },
+    "winter": {
+      "sky": "#A3B5CD",
+      "fog": "#DCE5EB",
+      "cloud": "#CCDFE7EE"
+    }
+  },
+  "tropical": [
+    {
+      "sky": "#8EB5DE",
+      "fog": "#DCD7BB",
+      "cloud": "#CCFFF2D8"
+    },
+    {
+      "sky": "#99B3D4",
+      "fog": "#E2D5B6",
+      "cloud": "#CCF5E9CE"
+    },
+    {
+      "sky": "#91B4D9",
+      "fog": "#D6D9C0",
+      "cloud": "#CCF0ECD8"
+    },
+    {
+      "sky": "#83AFDA",
+      "fog": "#C2DAD7",
+      "cloud": "#CCDCE9E5"
+    },
+    {
+      "sky": "#859EBF",
+      "fog": "#BCCCD6",
+      "cloud": "#CCC7D2DF"
+    },
+    {
+      "sky": "#8AAED5",
+      "fog": "#C8DCDD",
+      "cloud": "#CCDDE8E8"
+    }
+  ]
+}
