@@ -2,9 +2,9 @@ name: CraftEngineSeasons
 version: '${version}'
 main: dev.ceseasons.SeasonsPlugin
 bootstrapper: dev.ceseasons.bootstrap.SeasonsBootstrap
-api-version: '26.3'
+api-version: '26.1.2'
 folia-supported: true
-description: Independent seasonal gameplay and visuals for CraftEngine on Folia 26.3
+description: Independent seasonal gameplay and visuals for CraftEngine on Folia 26.1.2, 26.2 and 26.3
 dependencies:
   server:
     CraftEngine:

@@ -1,4 +1,4 @@
-# CraftEngineSeasons — Minecraft/Folia 26.3 + CraftEngine 26.9.1
+# CraftEngineSeasons — Minecraft/Folia 26.1.2 / 26.2 / 26.3 + CraftEngine 26.9.1
 # Registry/biome definitions and the CE content pack require a full server restart.
 clock:
   day-ticks: 24000

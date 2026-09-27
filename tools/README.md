@@ -85,7 +85,27 @@ py -3 -X utf8 -m unittest discover -s src/test/python -v
 
 ## 运行期验收
 
-目标环境是工程锁定的 Minecraft/Folia 26.3、CraftEngine 26.9.1、Java 25。单元测试和构建通过不等同于完成真实 Folia/客户端验收。
+目标环境是 Minecraft/Folia **26.1.2、26.2、26.3**、CraftEngine 26.9.1、Java 25。同一个 JAR 在 bootstrap 阶段按服务器的准确版本选择数据包；不要手工将26.3数据包复制到旧版。未知版本明确拒绝启动。
+
+| Minecraft | 数据包目录 | 数据包格式 | 原版群系 / 季节变体 |
+| --- | --- | --- | --- |
+| 26.1.2 | `season_datapack_26_1_2` | 101.1 | 65 / 780 |
+| 26.2 | `season_datapack_26_2` | 107.1 | 66 / 792 |
+| 26.3 | `season_datapack` | 121.0 | 67 / 804 |
+
+默认以 `26.1.2.build.74-stable` Paper API 编译，避免误用新版 API。可用 `-PpaperVersion=<准确API构建号>` 做编译/测试矩阵；发布构建仍使用默认最低版本。三个版本的群系索引和配色一起打包，构建脚本会拒绝缺失或格式不匹配的资源。
+
+若需重新生成旧版群系资源，使用**对应版本已解包的官方服务端JAR**，而不是带嵌套versions目录的bundler：
+
+```sh
+python3 tools/generate_biomes.py --minecraft 26.1.2 --vanilla /path/to/26.1.2/server.jar
+python3 tools/generate_biomes.py --minecraft 26.2 --vanilla /path/to/26.2/server.jar
+sh ./build.sh
+```
+
+生成器核对 `version.json` 和准确数据包格式，保留各版自己的 worldgen、刷怪及其他字段；随后一键构建统一应用 `season-atmosphere.json`。正常构建使用仓库已包含的三版资源，不需要下载服务端JAR。
+
+协议适配在启动时还会用私有合成 registry 做原生 PalettedContainer 编码→重映射→原生解码自检，覆盖15种调色板组合，不修改真实世界。字段或线格式不匹配时拒绝启动，不猜测回退。开发验证包含官方26.1.2和26.2原生协议探测、Folia26.2区域骨粉/CraftBiome反射探测；这不等同于完整启动服务端或客户端验收，26.1.2 Folia运行区域补丁及26.3运行期效果仍需实服验证。
 
 在启用季节的世界中，确认 `visual.enabled=true`，先选平原、草地和橡树进行检查：
 

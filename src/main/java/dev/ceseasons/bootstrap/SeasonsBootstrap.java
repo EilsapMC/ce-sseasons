@@ -15,9 +15,12 @@ public final class SeasonsBootstrap implements PluginBootstrap {
     @Override
     public void bootstrap(BootstrapContext context) {
         // Resolve pack.mcmeta rather than a directory entry: jars need not contain directory entries.
-        URL metadata = SeasonsBootstrap.class.getResource("/season_datapack/pack.mcmeta");
+        var version = dev.ceseasons.platform.MinecraftVersion.fromId(
+                io.papermc.paper.ServerBuildInfo.buildInfo().minecraftVersionId());
+        URL metadata = SeasonsBootstrap.class.getResource("/" + version.datapackRoot() + "/pack.mcmeta");
         if (metadata == null) {
-            throw new IllegalStateException("CESeasons requires the generated season_datapack in its jar; run tools/generate_biomes.py before packaging");
+            throw new IllegalStateException("CESeasons is missing the generated datapack for Minecraft "
+                    + version.id() + "; run tools/generate_biomes.py before packaging");
         }
         context.getLifecycleManager().registerEventHandler(LifecycleEvents.DATAPACK_DISCOVERY, event -> {
             try {

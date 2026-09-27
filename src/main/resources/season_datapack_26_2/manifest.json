@@ -1,0 +1,1335 @@
+{
+  "schema": 1,
+  "minecraft": "26.2",
+  "data_format": [
+    107,
+    1
+  ],
+  "resource_format": [
+    88,
+    0
+  ],
+  "stages": 12,
+  "biomes": [
+    {
+      "base": "minecraft:badlands",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "34e84e545dd6678b7f2585996fe9d664f19efb2722f954c2d78e113cfafe4624",
+      "variants": [
+        "ceseasons:badlands/stage_01",
+        "ceseasons:badlands/stage_02",
+        "ceseasons:badlands/stage_03",
+        "ceseasons:badlands/stage_04",
+        "ceseasons:badlands/stage_05",
+        "ceseasons:badlands/stage_06",
+        "ceseasons:badlands/stage_07",
+        "ceseasons:badlands/stage_08",
+        "ceseasons:badlands/stage_09",
+        "ceseasons:badlands/stage_10",
+        "ceseasons:badlands/stage_11",
+        "ceseasons:badlands/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:bamboo_jungle",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "f3ea85a61fe1a766e4800f934ad33dc06f054ca7abf2af80c27eccddff250f88",
+      "variants": [
+        "ceseasons:bamboo_jungle/stage_01",
+        "ceseasons:bamboo_jungle/stage_02",
+        "ceseasons:bamboo_jungle/stage_03",
+        "ceseasons:bamboo_jungle/stage_04",
+        "ceseasons:bamboo_jungle/stage_05",
+        "ceseasons:bamboo_jungle/stage_06",
+        "ceseasons:bamboo_jungle/stage_07",
+        "ceseasons:bamboo_jungle/stage_08",
+        "ceseasons:bamboo_jungle/stage_09",
+        "ceseasons:bamboo_jungle/stage_10",
+        "ceseasons:bamboo_jungle/stage_11",
+        "ceseasons:bamboo_jungle/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:basalt_deltas",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "5bfe1ab91bf4214b781060c871d6294347ae7adaabd54e3e8df6cadd11802c70",
+      "variants": [
+        "ceseasons:basalt_deltas/stage_01",
+        "ceseasons:basalt_deltas/stage_02",
+        "ceseasons:basalt_deltas/stage_03",
+        "ceseasons:basalt_deltas/stage_04",
+        "ceseasons:basalt_deltas/stage_05",
+        "ceseasons:basalt_deltas/stage_06",
+        "ceseasons:basalt_deltas/stage_07",
+        "ceseasons:basalt_deltas/stage_08",
+        "ceseasons:basalt_deltas/stage_09",
+        "ceseasons:basalt_deltas/stage_10",
+        "ceseasons:basalt_deltas/stage_11",
+        "ceseasons:basalt_deltas/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:beach",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "885c41373c4f444c70e10bb6d67ff1c0ac6188b25dd2c10b3d1f5a61c26b4b36",
+      "variants": [
+        "ceseasons:beach/stage_01",
+        "ceseasons:beach/stage_02",
+        "ceseasons:beach/stage_03",
+        "ceseasons:beach/stage_04",
+        "ceseasons:beach/stage_05",
+        "ceseasons:beach/stage_06",
+        "ceseasons:beach/stage_07",
+        "ceseasons:beach/stage_08",
+        "ceseasons:beach/stage_09",
+        "ceseasons:beach/stage_10",
+        "ceseasons:beach/stage_11",
+        "ceseasons:beach/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:birch_forest",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "155ee92826bd398809fb776ef31d427ea2ff1f2295bb6a5d06024f760705940f",
+      "variants": [
+        "ceseasons:birch_forest/stage_01",
+        "ceseasons:birch_forest/stage_02",
+        "ceseasons:birch_forest/stage_03",
+        "ceseasons:birch_forest/stage_04",
+        "ceseasons:birch_forest/stage_05",
+        "ceseasons:birch_forest/stage_06",
+        "ceseasons:birch_forest/stage_07",
+        "ceseasons:birch_forest/stage_08",
+        "ceseasons:birch_forest/stage_09",
+        "ceseasons:birch_forest/stage_10",
+        "ceseasons:birch_forest/stage_11",
+        "ceseasons:birch_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:cherry_grove",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "2410ed7f6a18a4644c30e93cf73957735a86ea301fddb67127a79ccdd190733b",
+      "variants": [
+        "ceseasons:cherry_grove/stage_01",
+        "ceseasons:cherry_grove/stage_02",
+        "ceseasons:cherry_grove/stage_03",
+        "ceseasons:cherry_grove/stage_04",
+        "ceseasons:cherry_grove/stage_05",
+        "ceseasons:cherry_grove/stage_06",
+        "ceseasons:cherry_grove/stage_07",
+        "ceseasons:cherry_grove/stage_08",
+        "ceseasons:cherry_grove/stage_09",
+        "ceseasons:cherry_grove/stage_10",
+        "ceseasons:cherry_grove/stage_11",
+        "ceseasons:cherry_grove/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:cold_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "7bf1e11be059d887514da167f0446dd93b901238cf7dbc219b661bd6e08a90cd",
+      "variants": [
+        "ceseasons:cold_ocean/stage_01",
+        "ceseasons:cold_ocean/stage_02",
+        "ceseasons:cold_ocean/stage_03",
+        "ceseasons:cold_ocean/stage_04",
+        "ceseasons:cold_ocean/stage_05",
+        "ceseasons:cold_ocean/stage_06",
+        "ceseasons:cold_ocean/stage_07",
+        "ceseasons:cold_ocean/stage_08",
+        "ceseasons:cold_ocean/stage_09",
+        "ceseasons:cold_ocean/stage_10",
+        "ceseasons:cold_ocean/stage_11",
+        "ceseasons:cold_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:crimson_forest",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "c92ba33ee7c36978de09f62a22ffbcf2ed6d6c0484885a57cac109c6f18d837b",
+      "variants": [
+        "ceseasons:crimson_forest/stage_01",
+        "ceseasons:crimson_forest/stage_02",
+        "ceseasons:crimson_forest/stage_03",
+        "ceseasons:crimson_forest/stage_04",
+        "ceseasons:crimson_forest/stage_05",
+        "ceseasons:crimson_forest/stage_06",
+        "ceseasons:crimson_forest/stage_07",
+        "ceseasons:crimson_forest/stage_08",
+        "ceseasons:crimson_forest/stage_09",
+        "ceseasons:crimson_forest/stage_10",
+        "ceseasons:crimson_forest/stage_11",
+        "ceseasons:crimson_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:dark_forest",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "3f1060431a69da3a097c0d9563a84838bd6bac8f1e508daf8a2607e584dcc5ef",
+      "variants": [
+        "ceseasons:dark_forest/stage_01",
+        "ceseasons:dark_forest/stage_02",
+        "ceseasons:dark_forest/stage_03",
+        "ceseasons:dark_forest/stage_04",
+        "ceseasons:dark_forest/stage_05",
+        "ceseasons:dark_forest/stage_06",
+        "ceseasons:dark_forest/stage_07",
+        "ceseasons:dark_forest/stage_08",
+        "ceseasons:dark_forest/stage_09",
+        "ceseasons:dark_forest/stage_10",
+        "ceseasons:dark_forest/stage_11",
+        "ceseasons:dark_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:deep_cold_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "5a542d6ae1d388057d479612337c7886232ebb571ff8900e4a138d56dbe0117a",
+      "variants": [
+        "ceseasons:deep_cold_ocean/stage_01",
+        "ceseasons:deep_cold_ocean/stage_02",
+        "ceseasons:deep_cold_ocean/stage_03",
+        "ceseasons:deep_cold_ocean/stage_04",
+        "ceseasons:deep_cold_ocean/stage_05",
+        "ceseasons:deep_cold_ocean/stage_06",
+        "ceseasons:deep_cold_ocean/stage_07",
+        "ceseasons:deep_cold_ocean/stage_08",
+        "ceseasons:deep_cold_ocean/stage_09",
+        "ceseasons:deep_cold_ocean/stage_10",
+        "ceseasons:deep_cold_ocean/stage_11",
+        "ceseasons:deep_cold_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:deep_dark",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "0c6949e5e82dfd367da2824792503d0f1c6bc3d647da344cb29f81720aec4032",
+      "variants": [
+        "ceseasons:deep_dark/stage_01",
+        "ceseasons:deep_dark/stage_02",
+        "ceseasons:deep_dark/stage_03",
+        "ceseasons:deep_dark/stage_04",
+        "ceseasons:deep_dark/stage_05",
+        "ceseasons:deep_dark/stage_06",
+        "ceseasons:deep_dark/stage_07",
+        "ceseasons:deep_dark/stage_08",
+        "ceseasons:deep_dark/stage_09",
+        "ceseasons:deep_dark/stage_10",
+        "ceseasons:deep_dark/stage_11",
+        "ceseasons:deep_dark/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:deep_frozen_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "2ee1307b292430f788cc2bd2fa155872da557fdb60969ff9b2d0d28d16d5e39d",
+      "variants": [
+        "ceseasons:deep_frozen_ocean/stage_01",
+        "ceseasons:deep_frozen_ocean/stage_02",
+        "ceseasons:deep_frozen_ocean/stage_03",
+        "ceseasons:deep_frozen_ocean/stage_04",
+        "ceseasons:deep_frozen_ocean/stage_05",
+        "ceseasons:deep_frozen_ocean/stage_06",
+        "ceseasons:deep_frozen_ocean/stage_07",
+        "ceseasons:deep_frozen_ocean/stage_08",
+        "ceseasons:deep_frozen_ocean/stage_09",
+        "ceseasons:deep_frozen_ocean/stage_10",
+        "ceseasons:deep_frozen_ocean/stage_11",
+        "ceseasons:deep_frozen_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:deep_lukewarm_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "64a4d3f8ff6e45ff86d89ac8bf65d9eeaf5c079e477ab36ea0f46851a752b6a0",
+      "variants": [
+        "ceseasons:deep_lukewarm_ocean/stage_01",
+        "ceseasons:deep_lukewarm_ocean/stage_02",
+        "ceseasons:deep_lukewarm_ocean/stage_03",
+        "ceseasons:deep_lukewarm_ocean/stage_04",
+        "ceseasons:deep_lukewarm_ocean/stage_05",
+        "ceseasons:deep_lukewarm_ocean/stage_06",
+        "ceseasons:deep_lukewarm_ocean/stage_07",
+        "ceseasons:deep_lukewarm_ocean/stage_08",
+        "ceseasons:deep_lukewarm_ocean/stage_09",
+        "ceseasons:deep_lukewarm_ocean/stage_10",
+        "ceseasons:deep_lukewarm_ocean/stage_11",
+        "ceseasons:deep_lukewarm_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:deep_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "7bcec871e10dbda4a46ccb9962791d1165189305912b2bc125d0dc0c103ea7ab",
+      "variants": [
+        "ceseasons:deep_ocean/stage_01",
+        "ceseasons:deep_ocean/stage_02",
+        "ceseasons:deep_ocean/stage_03",
+        "ceseasons:deep_ocean/stage_04",
+        "ceseasons:deep_ocean/stage_05",
+        "ceseasons:deep_ocean/stage_06",
+        "ceseasons:deep_ocean/stage_07",
+        "ceseasons:deep_ocean/stage_08",
+        "ceseasons:deep_ocean/stage_09",
+        "ceseasons:deep_ocean/stage_10",
+        "ceseasons:deep_ocean/stage_11",
+        "ceseasons:deep_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:desert",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "3dde65c718321ce77e3a6b6759baffb023ab6cd53e61b2af95c640e8c43a577e",
+      "variants": [
+        "ceseasons:desert/stage_01",
+        "ceseasons:desert/stage_02",
+        "ceseasons:desert/stage_03",
+        "ceseasons:desert/stage_04",
+        "ceseasons:desert/stage_05",
+        "ceseasons:desert/stage_06",
+        "ceseasons:desert/stage_07",
+        "ceseasons:desert/stage_08",
+        "ceseasons:desert/stage_09",
+        "ceseasons:desert/stage_10",
+        "ceseasons:desert/stage_11",
+        "ceseasons:desert/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:dripstone_caves",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "e41ccf99afffb92d6b28c992badfc838ab6957b43c54def3a49c5a0cd8cafc8c",
+      "variants": [
+        "ceseasons:dripstone_caves/stage_01",
+        "ceseasons:dripstone_caves/stage_02",
+        "ceseasons:dripstone_caves/stage_03",
+        "ceseasons:dripstone_caves/stage_04",
+        "ceseasons:dripstone_caves/stage_05",
+        "ceseasons:dripstone_caves/stage_06",
+        "ceseasons:dripstone_caves/stage_07",
+        "ceseasons:dripstone_caves/stage_08",
+        "ceseasons:dripstone_caves/stage_09",
+        "ceseasons:dripstone_caves/stage_10",
+        "ceseasons:dripstone_caves/stage_11",
+        "ceseasons:dripstone_caves/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:end_barrens",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "7a5ec9b3ee56e25610169af5a28fa22a87da7bea113295099e22920cc8bdd512",
+      "variants": [
+        "ceseasons:end_barrens/stage_01",
+        "ceseasons:end_barrens/stage_02",
+        "ceseasons:end_barrens/stage_03",
+        "ceseasons:end_barrens/stage_04",
+        "ceseasons:end_barrens/stage_05",
+        "ceseasons:end_barrens/stage_06",
+        "ceseasons:end_barrens/stage_07",
+        "ceseasons:end_barrens/stage_08",
+        "ceseasons:end_barrens/stage_09",
+        "ceseasons:end_barrens/stage_10",
+        "ceseasons:end_barrens/stage_11",
+        "ceseasons:end_barrens/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:end_highlands",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "fea14639ccca3646e3a4ce2db8394e4573df7f4bcff7ee07344b393f712c4cf0",
+      "variants": [
+        "ceseasons:end_highlands/stage_01",
+        "ceseasons:end_highlands/stage_02",
+        "ceseasons:end_highlands/stage_03",
+        "ceseasons:end_highlands/stage_04",
+        "ceseasons:end_highlands/stage_05",
+        "ceseasons:end_highlands/stage_06",
+        "ceseasons:end_highlands/stage_07",
+        "ceseasons:end_highlands/stage_08",
+        "ceseasons:end_highlands/stage_09",
+        "ceseasons:end_highlands/stage_10",
+        "ceseasons:end_highlands/stage_11",
+        "ceseasons:end_highlands/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:end_midlands",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "7a5ec9b3ee56e25610169af5a28fa22a87da7bea113295099e22920cc8bdd512",
+      "variants": [
+        "ceseasons:end_midlands/stage_01",
+        "ceseasons:end_midlands/stage_02",
+        "ceseasons:end_midlands/stage_03",
+        "ceseasons:end_midlands/stage_04",
+        "ceseasons:end_midlands/stage_05",
+        "ceseasons:end_midlands/stage_06",
+        "ceseasons:end_midlands/stage_07",
+        "ceseasons:end_midlands/stage_08",
+        "ceseasons:end_midlands/stage_09",
+        "ceseasons:end_midlands/stage_10",
+        "ceseasons:end_midlands/stage_11",
+        "ceseasons:end_midlands/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:eroded_badlands",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "34e84e545dd6678b7f2585996fe9d664f19efb2722f954c2d78e113cfafe4624",
+      "variants": [
+        "ceseasons:eroded_badlands/stage_01",
+        "ceseasons:eroded_badlands/stage_02",
+        "ceseasons:eroded_badlands/stage_03",
+        "ceseasons:eroded_badlands/stage_04",
+        "ceseasons:eroded_badlands/stage_05",
+        "ceseasons:eroded_badlands/stage_06",
+        "ceseasons:eroded_badlands/stage_07",
+        "ceseasons:eroded_badlands/stage_08",
+        "ceseasons:eroded_badlands/stage_09",
+        "ceseasons:eroded_badlands/stage_10",
+        "ceseasons:eroded_badlands/stage_11",
+        "ceseasons:eroded_badlands/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:flower_forest",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "7eae53836c27b03151cf373d34782813c0048dcffdc1df3f69185f50972d8499",
+      "variants": [
+        "ceseasons:flower_forest/stage_01",
+        "ceseasons:flower_forest/stage_02",
+        "ceseasons:flower_forest/stage_03",
+        "ceseasons:flower_forest/stage_04",
+        "ceseasons:flower_forest/stage_05",
+        "ceseasons:flower_forest/stage_06",
+        "ceseasons:flower_forest/stage_07",
+        "ceseasons:flower_forest/stage_08",
+        "ceseasons:flower_forest/stage_09",
+        "ceseasons:flower_forest/stage_10",
+        "ceseasons:flower_forest/stage_11",
+        "ceseasons:flower_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:forest",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "8f8f19068985a639c25df050d47af90daddee2eeb460d4e56c0c71afae128e21",
+      "variants": [
+        "ceseasons:forest/stage_01",
+        "ceseasons:forest/stage_02",
+        "ceseasons:forest/stage_03",
+        "ceseasons:forest/stage_04",
+        "ceseasons:forest/stage_05",
+        "ceseasons:forest/stage_06",
+        "ceseasons:forest/stage_07",
+        "ceseasons:forest/stage_08",
+        "ceseasons:forest/stage_09",
+        "ceseasons:forest/stage_10",
+        "ceseasons:forest/stage_11",
+        "ceseasons:forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:frozen_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "35463593c50362611affb77e9fa98e19e899b4a744113c2101e585a9bfed91ae",
+      "variants": [
+        "ceseasons:frozen_ocean/stage_01",
+        "ceseasons:frozen_ocean/stage_02",
+        "ceseasons:frozen_ocean/stage_03",
+        "ceseasons:frozen_ocean/stage_04",
+        "ceseasons:frozen_ocean/stage_05",
+        "ceseasons:frozen_ocean/stage_06",
+        "ceseasons:frozen_ocean/stage_07",
+        "ceseasons:frozen_ocean/stage_08",
+        "ceseasons:frozen_ocean/stage_09",
+        "ceseasons:frozen_ocean/stage_10",
+        "ceseasons:frozen_ocean/stage_11",
+        "ceseasons:frozen_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:frozen_peaks",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "c976a41f3e4f1539e934f0875e257f95ecad47f526bbb5e2a1ececa50586f6b2",
+      "variants": [
+        "ceseasons:frozen_peaks/stage_01",
+        "ceseasons:frozen_peaks/stage_02",
+        "ceseasons:frozen_peaks/stage_03",
+        "ceseasons:frozen_peaks/stage_04",
+        "ceseasons:frozen_peaks/stage_05",
+        "ceseasons:frozen_peaks/stage_06",
+        "ceseasons:frozen_peaks/stage_07",
+        "ceseasons:frozen_peaks/stage_08",
+        "ceseasons:frozen_peaks/stage_09",
+        "ceseasons:frozen_peaks/stage_10",
+        "ceseasons:frozen_peaks/stage_11",
+        "ceseasons:frozen_peaks/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:frozen_river",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "f447523bb2e6568790eee1c183d73373c2304bd6cbe072de7fec9c1bc66156ac",
+      "variants": [
+        "ceseasons:frozen_river/stage_01",
+        "ceseasons:frozen_river/stage_02",
+        "ceseasons:frozen_river/stage_03",
+        "ceseasons:frozen_river/stage_04",
+        "ceseasons:frozen_river/stage_05",
+        "ceseasons:frozen_river/stage_06",
+        "ceseasons:frozen_river/stage_07",
+        "ceseasons:frozen_river/stage_08",
+        "ceseasons:frozen_river/stage_09",
+        "ceseasons:frozen_river/stage_10",
+        "ceseasons:frozen_river/stage_11",
+        "ceseasons:frozen_river/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:grove",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "51e76634b49ae246a707e9519c9a4ed516b72fd099a3ea4c868036ffa787a0ef",
+      "variants": [
+        "ceseasons:grove/stage_01",
+        "ceseasons:grove/stage_02",
+        "ceseasons:grove/stage_03",
+        "ceseasons:grove/stage_04",
+        "ceseasons:grove/stage_05",
+        "ceseasons:grove/stage_06",
+        "ceseasons:grove/stage_07",
+        "ceseasons:grove/stage_08",
+        "ceseasons:grove/stage_09",
+        "ceseasons:grove/stage_10",
+        "ceseasons:grove/stage_11",
+        "ceseasons:grove/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:ice_spikes",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "5c936b00ce2f5d8ffaf355d94c2595508cb79973129e2577d497fd3714966d7b",
+      "variants": [
+        "ceseasons:ice_spikes/stage_01",
+        "ceseasons:ice_spikes/stage_02",
+        "ceseasons:ice_spikes/stage_03",
+        "ceseasons:ice_spikes/stage_04",
+        "ceseasons:ice_spikes/stage_05",
+        "ceseasons:ice_spikes/stage_06",
+        "ceseasons:ice_spikes/stage_07",
+        "ceseasons:ice_spikes/stage_08",
+        "ceseasons:ice_spikes/stage_09",
+        "ceseasons:ice_spikes/stage_10",
+        "ceseasons:ice_spikes/stage_11",
+        "ceseasons:ice_spikes/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:jagged_peaks",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "39dae05ebafed27006d06f684d4d7010790b409ed5c63569a906452e7b87975e",
+      "variants": [
+        "ceseasons:jagged_peaks/stage_01",
+        "ceseasons:jagged_peaks/stage_02",
+        "ceseasons:jagged_peaks/stage_03",
+        "ceseasons:jagged_peaks/stage_04",
+        "ceseasons:jagged_peaks/stage_05",
+        "ceseasons:jagged_peaks/stage_06",
+        "ceseasons:jagged_peaks/stage_07",
+        "ceseasons:jagged_peaks/stage_08",
+        "ceseasons:jagged_peaks/stage_09",
+        "ceseasons:jagged_peaks/stage_10",
+        "ceseasons:jagged_peaks/stage_11",
+        "ceseasons:jagged_peaks/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:jungle",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "7aba1ed914b67e7563a6ce4c456e542790b15a2d53f7554cc36133f6b988b970",
+      "variants": [
+        "ceseasons:jungle/stage_01",
+        "ceseasons:jungle/stage_02",
+        "ceseasons:jungle/stage_03",
+        "ceseasons:jungle/stage_04",
+        "ceseasons:jungle/stage_05",
+        "ceseasons:jungle/stage_06",
+        "ceseasons:jungle/stage_07",
+        "ceseasons:jungle/stage_08",
+        "ceseasons:jungle/stage_09",
+        "ceseasons:jungle/stage_10",
+        "ceseasons:jungle/stage_11",
+        "ceseasons:jungle/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:lukewarm_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "abd95254a864bf96ff245209779e6fe2e86f6d948026f6769640be0e31bf5c2c",
+      "variants": [
+        "ceseasons:lukewarm_ocean/stage_01",
+        "ceseasons:lukewarm_ocean/stage_02",
+        "ceseasons:lukewarm_ocean/stage_03",
+        "ceseasons:lukewarm_ocean/stage_04",
+        "ceseasons:lukewarm_ocean/stage_05",
+        "ceseasons:lukewarm_ocean/stage_06",
+        "ceseasons:lukewarm_ocean/stage_07",
+        "ceseasons:lukewarm_ocean/stage_08",
+        "ceseasons:lukewarm_ocean/stage_09",
+        "ceseasons:lukewarm_ocean/stage_10",
+        "ceseasons:lukewarm_ocean/stage_11",
+        "ceseasons:lukewarm_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:lush_caves",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "2bf9f13c86e374ddeab6cab94e21aaa215fc7eb6b02bdfbd0e9469acb8c452d0",
+      "variants": [
+        "ceseasons:lush_caves/stage_01",
+        "ceseasons:lush_caves/stage_02",
+        "ceseasons:lush_caves/stage_03",
+        "ceseasons:lush_caves/stage_04",
+        "ceseasons:lush_caves/stage_05",
+        "ceseasons:lush_caves/stage_06",
+        "ceseasons:lush_caves/stage_07",
+        "ceseasons:lush_caves/stage_08",
+        "ceseasons:lush_caves/stage_09",
+        "ceseasons:lush_caves/stage_10",
+        "ceseasons:lush_caves/stage_11",
+        "ceseasons:lush_caves/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:mangrove_swamp",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "da061806f152db400cd56154310e66287ac624d56b4939ac55ee29b7e0bfda0a",
+      "variants": [
+        "ceseasons:mangrove_swamp/stage_01",
+        "ceseasons:mangrove_swamp/stage_02",
+        "ceseasons:mangrove_swamp/stage_03",
+        "ceseasons:mangrove_swamp/stage_04",
+        "ceseasons:mangrove_swamp/stage_05",
+        "ceseasons:mangrove_swamp/stage_06",
+        "ceseasons:mangrove_swamp/stage_07",
+        "ceseasons:mangrove_swamp/stage_08",
+        "ceseasons:mangrove_swamp/stage_09",
+        "ceseasons:mangrove_swamp/stage_10",
+        "ceseasons:mangrove_swamp/stage_11",
+        "ceseasons:mangrove_swamp/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:meadow",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "72e73704adab7417f2c7bf7aa96a42cf709a7a55c2d167b6ff5015ed14a2afc7",
+      "variants": [
+        "ceseasons:meadow/stage_01",
+        "ceseasons:meadow/stage_02",
+        "ceseasons:meadow/stage_03",
+        "ceseasons:meadow/stage_04",
+        "ceseasons:meadow/stage_05",
+        "ceseasons:meadow/stage_06",
+        "ceseasons:meadow/stage_07",
+        "ceseasons:meadow/stage_08",
+        "ceseasons:meadow/stage_09",
+        "ceseasons:meadow/stage_10",
+        "ceseasons:meadow/stage_11",
+        "ceseasons:meadow/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:mushroom_fields",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "e1d0d0070f0a6aca10b3e07ba655a85f8f19d6fc38260a029339fa2b2b91a444",
+      "variants": [
+        "ceseasons:mushroom_fields/stage_01",
+        "ceseasons:mushroom_fields/stage_02",
+        "ceseasons:mushroom_fields/stage_03",
+        "ceseasons:mushroom_fields/stage_04",
+        "ceseasons:mushroom_fields/stage_05",
+        "ceseasons:mushroom_fields/stage_06",
+        "ceseasons:mushroom_fields/stage_07",
+        "ceseasons:mushroom_fields/stage_08",
+        "ceseasons:mushroom_fields/stage_09",
+        "ceseasons:mushroom_fields/stage_10",
+        "ceseasons:mushroom_fields/stage_11",
+        "ceseasons:mushroom_fields/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:nether_wastes",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "03a2363f51e4b3b9490740e97ce281344dabc455ca7b42f9f15c003213d3c5ae",
+      "variants": [
+        "ceseasons:nether_wastes/stage_01",
+        "ceseasons:nether_wastes/stage_02",
+        "ceseasons:nether_wastes/stage_03",
+        "ceseasons:nether_wastes/stage_04",
+        "ceseasons:nether_wastes/stage_05",
+        "ceseasons:nether_wastes/stage_06",
+        "ceseasons:nether_wastes/stage_07",
+        "ceseasons:nether_wastes/stage_08",
+        "ceseasons:nether_wastes/stage_09",
+        "ceseasons:nether_wastes/stage_10",
+        "ceseasons:nether_wastes/stage_11",
+        "ceseasons:nether_wastes/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "ce1183e611b07453e40547ce1964280f0f33666d15115dbfcdccd9d15cc45d0f",
+      "variants": [
+        "ceseasons:ocean/stage_01",
+        "ceseasons:ocean/stage_02",
+        "ceseasons:ocean/stage_03",
+        "ceseasons:ocean/stage_04",
+        "ceseasons:ocean/stage_05",
+        "ceseasons:ocean/stage_06",
+        "ceseasons:ocean/stage_07",
+        "ceseasons:ocean/stage_08",
+        "ceseasons:ocean/stage_09",
+        "ceseasons:ocean/stage_10",
+        "ceseasons:ocean/stage_11",
+        "ceseasons:ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:old_growth_birch_forest",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "6456d18edfa9126b38dfdec7fbc6d4a485998989c404e1c37a9a6611cbd97d0e",
+      "variants": [
+        "ceseasons:old_growth_birch_forest/stage_01",
+        "ceseasons:old_growth_birch_forest/stage_02",
+        "ceseasons:old_growth_birch_forest/stage_03",
+        "ceseasons:old_growth_birch_forest/stage_04",
+        "ceseasons:old_growth_birch_forest/stage_05",
+        "ceseasons:old_growth_birch_forest/stage_06",
+        "ceseasons:old_growth_birch_forest/stage_07",
+        "ceseasons:old_growth_birch_forest/stage_08",
+        "ceseasons:old_growth_birch_forest/stage_09",
+        "ceseasons:old_growth_birch_forest/stage_10",
+        "ceseasons:old_growth_birch_forest/stage_11",
+        "ceseasons:old_growth_birch_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:old_growth_pine_taiga",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "001dffe481fdc0875f4288741d8a6f75a9b30a23e6480fb9122cc95eeb7f09bd",
+      "variants": [
+        "ceseasons:old_growth_pine_taiga/stage_01",
+        "ceseasons:old_growth_pine_taiga/stage_02",
+        "ceseasons:old_growth_pine_taiga/stage_03",
+        "ceseasons:old_growth_pine_taiga/stage_04",
+        "ceseasons:old_growth_pine_taiga/stage_05",
+        "ceseasons:old_growth_pine_taiga/stage_06",
+        "ceseasons:old_growth_pine_taiga/stage_07",
+        "ceseasons:old_growth_pine_taiga/stage_08",
+        "ceseasons:old_growth_pine_taiga/stage_09",
+        "ceseasons:old_growth_pine_taiga/stage_10",
+        "ceseasons:old_growth_pine_taiga/stage_11",
+        "ceseasons:old_growth_pine_taiga/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:old_growth_spruce_taiga",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "3960a79a2cf0a5f5f202f2a5e23df08f1055896750547908480e7f529d8107e1",
+      "variants": [
+        "ceseasons:old_growth_spruce_taiga/stage_01",
+        "ceseasons:old_growth_spruce_taiga/stage_02",
+        "ceseasons:old_growth_spruce_taiga/stage_03",
+        "ceseasons:old_growth_spruce_taiga/stage_04",
+        "ceseasons:old_growth_spruce_taiga/stage_05",
+        "ceseasons:old_growth_spruce_taiga/stage_06",
+        "ceseasons:old_growth_spruce_taiga/stage_07",
+        "ceseasons:old_growth_spruce_taiga/stage_08",
+        "ceseasons:old_growth_spruce_taiga/stage_09",
+        "ceseasons:old_growth_spruce_taiga/stage_10",
+        "ceseasons:old_growth_spruce_taiga/stage_11",
+        "ceseasons:old_growth_spruce_taiga/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:pale_garden",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "646892247213feec00128651b07b0ed5daa05824a1195e08d89110560e2b8451",
+      "variants": [
+        "ceseasons:pale_garden/stage_01",
+        "ceseasons:pale_garden/stage_02",
+        "ceseasons:pale_garden/stage_03",
+        "ceseasons:pale_garden/stage_04",
+        "ceseasons:pale_garden/stage_05",
+        "ceseasons:pale_garden/stage_06",
+        "ceseasons:pale_garden/stage_07",
+        "ceseasons:pale_garden/stage_08",
+        "ceseasons:pale_garden/stage_09",
+        "ceseasons:pale_garden/stage_10",
+        "ceseasons:pale_garden/stage_11",
+        "ceseasons:pale_garden/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:plains",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "4378ecdd277dc5155e6c005da20828b09e386212b34239f224767b53cc1e0bc0",
+      "variants": [
+        "ceseasons:plains/stage_01",
+        "ceseasons:plains/stage_02",
+        "ceseasons:plains/stage_03",
+        "ceseasons:plains/stage_04",
+        "ceseasons:plains/stage_05",
+        "ceseasons:plains/stage_06",
+        "ceseasons:plains/stage_07",
+        "ceseasons:plains/stage_08",
+        "ceseasons:plains/stage_09",
+        "ceseasons:plains/stage_10",
+        "ceseasons:plains/stage_11",
+        "ceseasons:plains/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:river",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "be9ea37deb1bcad5884a0d82ac48687d3703c19eba9948dc7079dedd544bac0f",
+      "variants": [
+        "ceseasons:river/stage_01",
+        "ceseasons:river/stage_02",
+        "ceseasons:river/stage_03",
+        "ceseasons:river/stage_04",
+        "ceseasons:river/stage_05",
+        "ceseasons:river/stage_06",
+        "ceseasons:river/stage_07",
+        "ceseasons:river/stage_08",
+        "ceseasons:river/stage_09",
+        "ceseasons:river/stage_10",
+        "ceseasons:river/stage_11",
+        "ceseasons:river/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:savanna",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "3574d29a3d3f7b3b58ea2d5b5b4be00e6180c8045130ecd458821477bf6d6f3a",
+      "variants": [
+        "ceseasons:savanna/stage_01",
+        "ceseasons:savanna/stage_02",
+        "ceseasons:savanna/stage_03",
+        "ceseasons:savanna/stage_04",
+        "ceseasons:savanna/stage_05",
+        "ceseasons:savanna/stage_06",
+        "ceseasons:savanna/stage_07",
+        "ceseasons:savanna/stage_08",
+        "ceseasons:savanna/stage_09",
+        "ceseasons:savanna/stage_10",
+        "ceseasons:savanna/stage_11",
+        "ceseasons:savanna/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:savanna_plateau",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "32579fe7f520d507e008ff4cc1350a5b49b5fe5e5bbc463953f9021351a780a7",
+      "variants": [
+        "ceseasons:savanna_plateau/stage_01",
+        "ceseasons:savanna_plateau/stage_02",
+        "ceseasons:savanna_plateau/stage_03",
+        "ceseasons:savanna_plateau/stage_04",
+        "ceseasons:savanna_plateau/stage_05",
+        "ceseasons:savanna_plateau/stage_06",
+        "ceseasons:savanna_plateau/stage_07",
+        "ceseasons:savanna_plateau/stage_08",
+        "ceseasons:savanna_plateau/stage_09",
+        "ceseasons:savanna_plateau/stage_10",
+        "ceseasons:savanna_plateau/stage_11",
+        "ceseasons:savanna_plateau/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:small_end_islands",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "8bb03f5afe21c41cbc65378aa6dadadf7d173c32feee902e3fac0e3175bd8bce",
+      "variants": [
+        "ceseasons:small_end_islands/stage_01",
+        "ceseasons:small_end_islands/stage_02",
+        "ceseasons:small_end_islands/stage_03",
+        "ceseasons:small_end_islands/stage_04",
+        "ceseasons:small_end_islands/stage_05",
+        "ceseasons:small_end_islands/stage_06",
+        "ceseasons:small_end_islands/stage_07",
+        "ceseasons:small_end_islands/stage_08",
+        "ceseasons:small_end_islands/stage_09",
+        "ceseasons:small_end_islands/stage_10",
+        "ceseasons:small_end_islands/stage_11",
+        "ceseasons:small_end_islands/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:snowy_beach",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "22d297ef22efeb27adaaeab6b51c7a12ca841d0cdb55837c64ac102234384950",
+      "variants": [
+        "ceseasons:snowy_beach/stage_01",
+        "ceseasons:snowy_beach/stage_02",
+        "ceseasons:snowy_beach/stage_03",
+        "ceseasons:snowy_beach/stage_04",
+        "ceseasons:snowy_beach/stage_05",
+        "ceseasons:snowy_beach/stage_06",
+        "ceseasons:snowy_beach/stage_07",
+        "ceseasons:snowy_beach/stage_08",
+        "ceseasons:snowy_beach/stage_09",
+        "ceseasons:snowy_beach/stage_10",
+        "ceseasons:snowy_beach/stage_11",
+        "ceseasons:snowy_beach/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:snowy_plains",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "16aa6e00430080c7fcfa4fbc42ade004adde1ebb3cc73ed8669d9f23466ffe69",
+      "variants": [
+        "ceseasons:snowy_plains/stage_01",
+        "ceseasons:snowy_plains/stage_02",
+        "ceseasons:snowy_plains/stage_03",
+        "ceseasons:snowy_plains/stage_04",
+        "ceseasons:snowy_plains/stage_05",
+        "ceseasons:snowy_plains/stage_06",
+        "ceseasons:snowy_plains/stage_07",
+        "ceseasons:snowy_plains/stage_08",
+        "ceseasons:snowy_plains/stage_09",
+        "ceseasons:snowy_plains/stage_10",
+        "ceseasons:snowy_plains/stage_11",
+        "ceseasons:snowy_plains/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:snowy_slopes",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "ab88bd9d1b419724ed26f0961d1ea449d79c337def76832404106b2210dd01ee",
+      "variants": [
+        "ceseasons:snowy_slopes/stage_01",
+        "ceseasons:snowy_slopes/stage_02",
+        "ceseasons:snowy_slopes/stage_03",
+        "ceseasons:snowy_slopes/stage_04",
+        "ceseasons:snowy_slopes/stage_05",
+        "ceseasons:snowy_slopes/stage_06",
+        "ceseasons:snowy_slopes/stage_07",
+        "ceseasons:snowy_slopes/stage_08",
+        "ceseasons:snowy_slopes/stage_09",
+        "ceseasons:snowy_slopes/stage_10",
+        "ceseasons:snowy_slopes/stage_11",
+        "ceseasons:snowy_slopes/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:snowy_taiga",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "69af150e28831f166d671452bd6d138e8dd6120d7f4b353331c7fb04146b08d4",
+      "variants": [
+        "ceseasons:snowy_taiga/stage_01",
+        "ceseasons:snowy_taiga/stage_02",
+        "ceseasons:snowy_taiga/stage_03",
+        "ceseasons:snowy_taiga/stage_04",
+        "ceseasons:snowy_taiga/stage_05",
+        "ceseasons:snowy_taiga/stage_06",
+        "ceseasons:snowy_taiga/stage_07",
+        "ceseasons:snowy_taiga/stage_08",
+        "ceseasons:snowy_taiga/stage_09",
+        "ceseasons:snowy_taiga/stage_10",
+        "ceseasons:snowy_taiga/stage_11",
+        "ceseasons:snowy_taiga/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:soul_sand_valley",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "3edb421067b3cd0d6e0a5c86eb403947148df0175b943774f020193a0c589c45",
+      "variants": [
+        "ceseasons:soul_sand_valley/stage_01",
+        "ceseasons:soul_sand_valley/stage_02",
+        "ceseasons:soul_sand_valley/stage_03",
+        "ceseasons:soul_sand_valley/stage_04",
+        "ceseasons:soul_sand_valley/stage_05",
+        "ceseasons:soul_sand_valley/stage_06",
+        "ceseasons:soul_sand_valley/stage_07",
+        "ceseasons:soul_sand_valley/stage_08",
+        "ceseasons:soul_sand_valley/stage_09",
+        "ceseasons:soul_sand_valley/stage_10",
+        "ceseasons:soul_sand_valley/stage_11",
+        "ceseasons:soul_sand_valley/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:sparse_jungle",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "3bfc369e122ddadbe029e0b3cbb4987c1e22f81b91e860341cbded6de4c7576a",
+      "variants": [
+        "ceseasons:sparse_jungle/stage_01",
+        "ceseasons:sparse_jungle/stage_02",
+        "ceseasons:sparse_jungle/stage_03",
+        "ceseasons:sparse_jungle/stage_04",
+        "ceseasons:sparse_jungle/stage_05",
+        "ceseasons:sparse_jungle/stage_06",
+        "ceseasons:sparse_jungle/stage_07",
+        "ceseasons:sparse_jungle/stage_08",
+        "ceseasons:sparse_jungle/stage_09",
+        "ceseasons:sparse_jungle/stage_10",
+        "ceseasons:sparse_jungle/stage_11",
+        "ceseasons:sparse_jungle/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:stony_peaks",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "78e7a5462d76b6f73d9619a637feb25b31354721c91bb0554ae01ff96a7da1d4",
+      "variants": [
+        "ceseasons:stony_peaks/stage_01",
+        "ceseasons:stony_peaks/stage_02",
+        "ceseasons:stony_peaks/stage_03",
+        "ceseasons:stony_peaks/stage_04",
+        "ceseasons:stony_peaks/stage_05",
+        "ceseasons:stony_peaks/stage_06",
+        "ceseasons:stony_peaks/stage_07",
+        "ceseasons:stony_peaks/stage_08",
+        "ceseasons:stony_peaks/stage_09",
+        "ceseasons:stony_peaks/stage_10",
+        "ceseasons:stony_peaks/stage_11",
+        "ceseasons:stony_peaks/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:stony_shore",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "dfd32356d628b631dc48785ba1eac04a574b2bb3506dd83644e611661017d523",
+      "variants": [
+        "ceseasons:stony_shore/stage_01",
+        "ceseasons:stony_shore/stage_02",
+        "ceseasons:stony_shore/stage_03",
+        "ceseasons:stony_shore/stage_04",
+        "ceseasons:stony_shore/stage_05",
+        "ceseasons:stony_shore/stage_06",
+        "ceseasons:stony_shore/stage_07",
+        "ceseasons:stony_shore/stage_08",
+        "ceseasons:stony_shore/stage_09",
+        "ceseasons:stony_shore/stage_10",
+        "ceseasons:stony_shore/stage_11",
+        "ceseasons:stony_shore/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:sulfur_caves",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "eea03da17608adf99948e8fb4fb81ecbf9add06060b2f4b0a32b50ae2e0f920a",
+      "variants": [
+        "ceseasons:sulfur_caves/stage_01",
+        "ceseasons:sulfur_caves/stage_02",
+        "ceseasons:sulfur_caves/stage_03",
+        "ceseasons:sulfur_caves/stage_04",
+        "ceseasons:sulfur_caves/stage_05",
+        "ceseasons:sulfur_caves/stage_06",
+        "ceseasons:sulfur_caves/stage_07",
+        "ceseasons:sulfur_caves/stage_08",
+        "ceseasons:sulfur_caves/stage_09",
+        "ceseasons:sulfur_caves/stage_10",
+        "ceseasons:sulfur_caves/stage_11",
+        "ceseasons:sulfur_caves/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:sunflower_plains",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "23dd004bb8b148ebf0a275d9ba48d213b21f8bd80f4ee09c3f4124a2cd84b604",
+      "variants": [
+        "ceseasons:sunflower_plains/stage_01",
+        "ceseasons:sunflower_plains/stage_02",
+        "ceseasons:sunflower_plains/stage_03",
+        "ceseasons:sunflower_plains/stage_04",
+        "ceseasons:sunflower_plains/stage_05",
+        "ceseasons:sunflower_plains/stage_06",
+        "ceseasons:sunflower_plains/stage_07",
+        "ceseasons:sunflower_plains/stage_08",
+        "ceseasons:sunflower_plains/stage_09",
+        "ceseasons:sunflower_plains/stage_10",
+        "ceseasons:sunflower_plains/stage_11",
+        "ceseasons:sunflower_plains/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:swamp",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "a20d96e1ff4c3452dfa35bf5763b784fb4f361c8ae5df24b080b7ffe68ae7661",
+      "variants": [
+        "ceseasons:swamp/stage_01",
+        "ceseasons:swamp/stage_02",
+        "ceseasons:swamp/stage_03",
+        "ceseasons:swamp/stage_04",
+        "ceseasons:swamp/stage_05",
+        "ceseasons:swamp/stage_06",
+        "ceseasons:swamp/stage_07",
+        "ceseasons:swamp/stage_08",
+        "ceseasons:swamp/stage_09",
+        "ceseasons:swamp/stage_10",
+        "ceseasons:swamp/stage_11",
+        "ceseasons:swamp/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:taiga",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "ee464ee7476caf6ad6ea4749a0e0c6bbcf86eec8aa72b9651af05d498aa033a0",
+      "variants": [
+        "ceseasons:taiga/stage_01",
+        "ceseasons:taiga/stage_02",
+        "ceseasons:taiga/stage_03",
+        "ceseasons:taiga/stage_04",
+        "ceseasons:taiga/stage_05",
+        "ceseasons:taiga/stage_06",
+        "ceseasons:taiga/stage_07",
+        "ceseasons:taiga/stage_08",
+        "ceseasons:taiga/stage_09",
+        "ceseasons:taiga/stage_10",
+        "ceseasons:taiga/stage_11",
+        "ceseasons:taiga/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:the_end",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "0975da75fb08d7270341fbb57db93ac64ae874d5da46f0ed1d3bc6e8b7649e1a",
+      "variants": [
+        "ceseasons:the_end/stage_01",
+        "ceseasons:the_end/stage_02",
+        "ceseasons:the_end/stage_03",
+        "ceseasons:the_end/stage_04",
+        "ceseasons:the_end/stage_05",
+        "ceseasons:the_end/stage_06",
+        "ceseasons:the_end/stage_07",
+        "ceseasons:the_end/stage_08",
+        "ceseasons:the_end/stage_09",
+        "ceseasons:the_end/stage_10",
+        "ceseasons:the_end/stage_11",
+        "ceseasons:the_end/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:the_void",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "07b6ff53d358d791165bbeb0e2f52095206c753fa5a20b5422c7196c2c9b30b7",
+      "variants": [
+        "ceseasons:the_void/stage_01",
+        "ceseasons:the_void/stage_02",
+        "ceseasons:the_void/stage_03",
+        "ceseasons:the_void/stage_04",
+        "ceseasons:the_void/stage_05",
+        "ceseasons:the_void/stage_06",
+        "ceseasons:the_void/stage_07",
+        "ceseasons:the_void/stage_08",
+        "ceseasons:the_void/stage_09",
+        "ceseasons:the_void/stage_10",
+        "ceseasons:the_void/stage_11",
+        "ceseasons:the_void/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:warm_ocean",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "1ab5c528f26d3a518072962440e2b3c98461e62e081edbeee04cb02db34eb589",
+      "variants": [
+        "ceseasons:warm_ocean/stage_01",
+        "ceseasons:warm_ocean/stage_02",
+        "ceseasons:warm_ocean/stage_03",
+        "ceseasons:warm_ocean/stage_04",
+        "ceseasons:warm_ocean/stage_05",
+        "ceseasons:warm_ocean/stage_06",
+        "ceseasons:warm_ocean/stage_07",
+        "ceseasons:warm_ocean/stage_08",
+        "ceseasons:warm_ocean/stage_09",
+        "ceseasons:warm_ocean/stage_10",
+        "ceseasons:warm_ocean/stage_11",
+        "ceseasons:warm_ocean/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:warped_forest",
+      "seasonal": false,
+      "tropical": false,
+      "template_sha256": "c9726cdddada63ad1a75590f73a44ff107809e81ab0efda67ae4a77210cd6dc2",
+      "variants": [
+        "ceseasons:warped_forest/stage_01",
+        "ceseasons:warped_forest/stage_02",
+        "ceseasons:warped_forest/stage_03",
+        "ceseasons:warped_forest/stage_04",
+        "ceseasons:warped_forest/stage_05",
+        "ceseasons:warped_forest/stage_06",
+        "ceseasons:warped_forest/stage_07",
+        "ceseasons:warped_forest/stage_08",
+        "ceseasons:warped_forest/stage_09",
+        "ceseasons:warped_forest/stage_10",
+        "ceseasons:warped_forest/stage_11",
+        "ceseasons:warped_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:windswept_forest",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "d77b1bc554ef90f4b3ca2fcb3362fc6166d3e791047f0be6591c20fd581b8465",
+      "variants": [
+        "ceseasons:windswept_forest/stage_01",
+        "ceseasons:windswept_forest/stage_02",
+        "ceseasons:windswept_forest/stage_03",
+        "ceseasons:windswept_forest/stage_04",
+        "ceseasons:windswept_forest/stage_05",
+        "ceseasons:windswept_forest/stage_06",
+        "ceseasons:windswept_forest/stage_07",
+        "ceseasons:windswept_forest/stage_08",
+        "ceseasons:windswept_forest/stage_09",
+        "ceseasons:windswept_forest/stage_10",
+        "ceseasons:windswept_forest/stage_11",
+        "ceseasons:windswept_forest/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:windswept_gravelly_hills",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "8324a5e7f68a98611416a932c388a683a7933387fc7d61bfbcdf312760828d37",
+      "variants": [
+        "ceseasons:windswept_gravelly_hills/stage_01",
+        "ceseasons:windswept_gravelly_hills/stage_02",
+        "ceseasons:windswept_gravelly_hills/stage_03",
+        "ceseasons:windswept_gravelly_hills/stage_04",
+        "ceseasons:windswept_gravelly_hills/stage_05",
+        "ceseasons:windswept_gravelly_hills/stage_06",
+        "ceseasons:windswept_gravelly_hills/stage_07",
+        "ceseasons:windswept_gravelly_hills/stage_08",
+        "ceseasons:windswept_gravelly_hills/stage_09",
+        "ceseasons:windswept_gravelly_hills/stage_10",
+        "ceseasons:windswept_gravelly_hills/stage_11",
+        "ceseasons:windswept_gravelly_hills/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:windswept_hills",
+      "seasonal": true,
+      "tropical": false,
+      "template_sha256": "8324a5e7f68a98611416a932c388a683a7933387fc7d61bfbcdf312760828d37",
+      "variants": [
+        "ceseasons:windswept_hills/stage_01",
+        "ceseasons:windswept_hills/stage_02",
+        "ceseasons:windswept_hills/stage_03",
+        "ceseasons:windswept_hills/stage_04",
+        "ceseasons:windswept_hills/stage_05",
+        "ceseasons:windswept_hills/stage_06",
+        "ceseasons:windswept_hills/stage_07",
+        "ceseasons:windswept_hills/stage_08",
+        "ceseasons:windswept_hills/stage_09",
+        "ceseasons:windswept_hills/stage_10",
+        "ceseasons:windswept_hills/stage_11",
+        "ceseasons:windswept_hills/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:windswept_savanna",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "5644d5a1a593fc832d5155cbe00d095a16ca12cc249271ecde5629d985914c8d",
+      "variants": [
+        "ceseasons:windswept_savanna/stage_01",
+        "ceseasons:windswept_savanna/stage_02",
+        "ceseasons:windswept_savanna/stage_03",
+        "ceseasons:windswept_savanna/stage_04",
+        "ceseasons:windswept_savanna/stage_05",
+        "ceseasons:windswept_savanna/stage_06",
+        "ceseasons:windswept_savanna/stage_07",
+        "ceseasons:windswept_savanna/stage_08",
+        "ceseasons:windswept_savanna/stage_09",
+        "ceseasons:windswept_savanna/stage_10",
+        "ceseasons:windswept_savanna/stage_11",
+        "ceseasons:windswept_savanna/stage_12"
+      ]
+    },
+    {
+      "base": "minecraft:wooded_badlands",
+      "seasonal": true,
+      "tropical": true,
+      "template_sha256": "acbf0b8c7e312a9284d8871e2b194a474ed4e7d7d9d187cb1a0982628136ef77",
+      "variants": [
+        "ceseasons:wooded_badlands/stage_01",
+        "ceseasons:wooded_badlands/stage_02",
+        "ceseasons:wooded_badlands/stage_03",
+        "ceseasons:wooded_badlands/stage_04",
+        "ceseasons:wooded_badlands/stage_05",
+        "ceseasons:wooded_badlands/stage_06",
+        "ceseasons:wooded_badlands/stage_07",
+        "ceseasons:wooded_badlands/stage_08",
+        "ceseasons:wooded_badlands/stage_09",
+        "ceseasons:wooded_badlands/stage_10",
+        "ceseasons:wooded_badlands/stage_11",
+        "ceseasons:wooded_badlands/stage_12"
+      ]
+    }
+  ]
+}

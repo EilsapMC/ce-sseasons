@@ -2,7 +2,9 @@ import copy
 import importlib.util
 import json
 import sys
+import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -60,6 +62,61 @@ class BiomeGeneratorTest(unittest.TestCase):
             generator.transform({}, 1)
         with self.assertRaises(ValueError):
             generator.transform(self.template(), 0)
+
+    def test_jar_input_preserves_legacy_spawn_fields_and_rejects_wrong_version(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / 'server.jar'
+            template = self.template()
+            template['spawn_costs'] = {'minecraft:zombie': {'energy_budget': 0.1, 'charge': 0.2}}
+            template['spawners'] = {'monster': [{'type': 'minecraft:zombie', 'weight': 10, 'minCount': 1, 'maxCount': 2}]}
+            with zipfile.ZipFile(source, 'w') as archive:
+                archive.writestr('version.json', json.dumps({'id': '26.2', 'pack_version': {
+                    'resource_major': 88, 'resource_minor': 0, 'data_major': 107, 'data_minor': 1}}))
+                archive.writestr('data/minecraft/worldgen/biome/plains.json', json.dumps(template))
+            output = root / 'generated'
+            manifest = generator.generate(source, output, minecraft='26.2')
+            self.assertEqual('26.2', manifest['minecraft'])
+            value = json.loads((output / 'data/ceseasons/worldgen/biome/plains/stage_01.json').read_text())
+            self.assertEqual(template['spawners'], value['spawners'])
+            self.assertEqual(template['spawn_costs'], value['spawn_costs'])
+            wrong = root / 'wrong-version'
+            with self.assertRaisesRegex(ValueError, 'exact 26.1.2'):
+                generator.generate(source, wrong, minecraft='26.1.2')
+            self.assertFalse(wrong.exists())
+
+    def test_all_server_versions_have_independent_matching_packs(self):
+        counts = {'26.1.2': 65, '26.2': 66, '26.3': 67}
+        for minecraft, profile in generator.VERSIONS.items():
+            with self.subTest(minecraft=minecraft):
+                pack = ROOT / 'src/main/resources' / profile['root']
+                metadata = json.loads((pack / 'pack.mcmeta').read_text(encoding='utf-8'))['pack']
+                self.assertEqual(profile['data'], metadata['min_format'])
+                self.assertEqual(profile['data'], metadata['max_format'])
+                manifest = json.loads((pack / 'manifest.json').read_text(encoding='utf-8'))
+                self.assertEqual(minecraft, manifest['minecraft'])
+                self.assertEqual(profile['resource'], manifest['resource_format'])
+                self.assertEqual(counts[minecraft], len(manifest['biomes']))
+                index = [line.split('|') for line in (pack / 'biomes.index').read_text().splitlines()
+                         if line and not line.startswith('#')]
+                self.assertEqual(counts[minecraft], len(index))
+                registered = set()
+                for row, biome in zip(index, manifest['biomes']):
+                    self.assertEqual(biome['base'], row[0])
+                    self.assertEqual(biome['variants'], row[3:])
+                    for key in biome['variants']:
+                        self.assertNotIn(key, registered)
+                        registered.add(key)
+                        path = pack / 'data/ceseasons/worldgen/biome' / (key.split(':')[1] + '.json')
+                        value = json.loads(path.read_text(encoding='utf-8'))
+                        self.assertIn('features', value)
+                        self.assertIsInstance(value.get('attributes', {}), dict)
+                        if minecraft != '26.3':
+                            self.assertIn('spawners', value)
+                            self.assertIn('spawn_costs', value)
+                self.assertEqual(counts[minecraft] * 12, len(registered))
+                actual = list((pack / 'data/ceseasons/worldgen/biome').rglob('*.json'))
+                self.assertEqual(len(registered), len(actual))
 
     def test_complete_pack_matches_index_and_versions(self):
         pack = ROOT / 'src/main/resources/season_datapack'

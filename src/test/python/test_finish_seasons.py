@@ -36,7 +36,9 @@ class FinishSeasonsTest(unittest.TestCase):
         self.write(self.project / 'gradlew', b'#!/bin/sh\nexit 0\n')
         self.write(self.mod / 'LICENSE', b'Original fixture license\n')
         self.write(self.pack / 'pack.yml', b'namespace: ce_seasons\n')
-        self.write_json(self.datapack / 'pack.mcmeta', {'pack': {'min_format': [121, 0]}})
+        for name, data_format in finisher.DATAPACKS.values():
+            self.write_json(self.resources / name / 'pack.mcmeta',
+                            {'pack': {'min_format': data_format, 'max_format': data_format}})
         calendars = [(f'stage_{i}', f'calendar_{i:02d}') for i in range(12)]
         calendars += [(f'stage_{12 + i}', f'calendar_tropical_{i:02d}') for i in range(6)]
         calendars.append(('unknown', 'calendar_null'))
@@ -57,9 +59,12 @@ class FinishSeasonsTest(unittest.TestCase):
                                          ('the_end', False, False)]:
             keys = [f'ceseasons:{name}/stage_{stage:02d}' for stage in range(1, 13)]
             rows.append('|'.join([f'minecraft:{name}', str(enabled), str(tropical), *keys]))
-            for stage in range(1, 13):
-                self.write_json(self.biome(name, stage), self.original_biome)
-        self.write(self.resources / 'biomes.index', ('\n'.join(rows) + '\n').encode())
+            for root, _ in finisher.DATAPACKS.values():
+                for stage in range(1, 13):
+                    path = self.resources / root / f'data/ceseasons/worldgen/biome/{name}/stage_{stage:02d}.json'
+                    self.write_json(path, self.original_biome)
+        for root, _ in finisher.DATAPACKS.values():
+            self.write(self.resources / root / 'biomes.index', ('\n'.join(rows) + '\n').encode())
 
     def write(self, path, value):
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -138,7 +143,19 @@ class FinishSeasonsTest(unittest.TestCase):
         with mock.patch.object(finisher.subprocess, 'run', side_effect=self.build_fixture):
             self.run_main()
         self.assertEqual(before, path.read_bytes())
-        self.assertEqual('#112233', finisher.read_json(self.biome('plains', 1))['attributes']['minecraft:visual/sky_color'])
+        for root, _ in finisher.DATAPACKS.values():
+            biome = self.resources / root / 'data/ceseasons/worldgen/biome/plains/stage_01.json'
+            self.assertEqual('#112233', finisher.read_json(biome)['attributes']['minecraft:visual/sky_color'])
+
+    def test_missing_older_version_pack_fails_before_any_changes(self):
+        path = self.resources / 'season_datapack_26_1_2/pack.mcmeta'
+        path.unlink()
+        before = self.snapshot()
+        with mock.patch.object(finisher.subprocess, 'run') as run:
+            with self.assertRaises(FileNotFoundError):
+                self.run_main()
+        run.assert_not_called()
+        self.assertEqual(before, self.snapshot())
 
     def test_invalid_color_aborts_before_resource_changes(self):
         colors = copy.deepcopy(finisher.DEFAULT_COLORS)

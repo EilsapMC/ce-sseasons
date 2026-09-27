@@ -52,10 +52,8 @@ public final class SeasonsPlugin extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         try {
-            if (!Bukkit.getMinecraftVersion().equals("26.3")) {
-                throw new IllegalStateException("This build targets Minecraft 26.3 only; found "
-                        + Bukkit.getMinecraftVersion());
-            }
+            dev.ceseasons.platform.MinecraftVersion version =
+                    dev.ceseasons.platform.MinecraftVersion.fromId(Bukkit.getMinecraftVersion());
             saveDefaultConfig();
             settings = SeasonsConfig.parse(getConfig());
             store = new SeasonStore(getDataFolder().toPath().resolve("seasons.properties"),
@@ -88,7 +86,8 @@ public final class SeasonsPlugin extends JavaPlugin implements Listener {
                     Bukkit.getPluginManager().disablePlugin(this);
                 }
             }, 1L, 1L);
-            getLogger().info("CraftEngineSeasons enabled for Minecraft 26.3. Client and Folia integration validation is required.");
+            getLogger().info("CraftEngineSeasons enabled for Minecraft " + version.id()
+                    + ". Client and Folia integration validation is required.");
         } catch (Exception failure) {
             getLogger().log(Level.SEVERE, "Cannot enable CraftEngineSeasons", failure);
             Bukkit.getPluginManager().disablePlugin(this);

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate 26.3 server registry biomes, using Mojang's local templates only.
+"""Generate version-matched server registry biomes from Mojang's local templates.
 
-Run before processResources/package: python tools/generate_biomes.py --vanilla PATH
-PATH is a vanilla resource root or its data/minecraft/worldgen/biome directory.
-No SS color tables, textures, downloaded data, or client-only registry append.
+python tools/generate_biomes.py --minecraft 26.2 --vanilla SERVER_JAR_OR_DIRECTORY
+Accepts an extracted server jar, resource root, or data/minecraft/worldgen/biome.
+No SS color tables, textures, or client-only registry append.
 """
 from __future__ import annotations
 
@@ -12,10 +12,16 @@ import copy
 import hashlib
 import json
 import re
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'src/main/resources/season_datapack'
+VERSIONS = {
+    '26.1.2': {'data': [101, 1], 'resource': [84, 0], 'root': 'season_datapack_26_1_2'},
+    '26.2': {'data': [107, 1], 'resource': [88, 0], 'root': 'season_datapack_26_2'},
+    '26.3': {'data': [121, 0], 'resource': [97, 1], 'root': 'season_datapack'},
+}
 NAMESPACE = 'ceseasons'
 # Original hand-authored grass, foliage, dry foliage RGB palette, spring -> winter.
 PALETTE = (
@@ -63,7 +69,7 @@ def transform(template: dict, stage: int, biome: str = 'plains') -> dict:
     if not 1 <= stage <= 12:
         raise ValueError('stage must be 1..12')
     if not isinstance(template.get('attributes', {}), dict):
-        raise ValueError('26.3 positional attributes must be an object')
+        raise ValueError('Biome positional attributes must be an object')
     required = {'carvers', 'features', 'temperature', 'downfall', 'has_precipitation', 'effects'}
     if not required.issubset(template):
         raise ValueError(f'Not a complete DIRECT_CODEC template: missing {required - template.keys()}')
@@ -97,35 +103,47 @@ def source_directory(path: Path) -> Path:
     return result
 
 
-def generate(vanilla: Path, output: Path = OUTPUT, only: set[str] | None = None) -> dict:
-    source = source_directory(vanilla)
-    version_file = source.parents[3] / 'version.json'
-    if not version_file.is_file():
-        raise ValueError(f'26.3 version.json missing next to resource root: {version_file}')
-    version = json.loads(version_file.read_text(encoding='utf-8'))
-    expected_pack = {'resource_major': 97, 'resource_minor': 1, 'data_major': 121, 'data_minor': 0}
-    if version.get('id') != '26.3' or version.get('pack_version') != expected_pack:
-        raise ValueError('Generator requires exact 26.3 / data 121.0 / resource 97.1 templates')
-    files = sorted(source.glob('*.json'))
+def generate(vanilla: Path, output: Path | None = None, only: set[str] | None = None,
+             minecraft: str = '26.3') -> dict:
+    profile = VERSIONS[minecraft]
+    if output is None:
+        output = ROOT / 'src/main/resources' / profile['root']
+    if vanilla.is_file():
+        with zipfile.ZipFile(vanilla) as archive:
+            version = json.loads(archive.read('version.json'))
+            prefix = 'data/minecraft/worldgen/biome/'
+            templates = {Path(name).stem: archive.read(name) for name in archive.namelist()
+                         if name.startswith(prefix) and name.endswith('.json')
+                         and '/' not in name[len(prefix):]}
+    else:
+        source = source_directory(vanilla)
+        version_file = source.parents[3] / 'version.json'
+        if not version_file.is_file():
+            raise ValueError(f'version.json missing next to resource root: {version_file}')
+        version = json.loads(version_file.read_text(encoding='utf-8'))
+        templates = {file.stem: file.read_bytes() for file in source.glob('*.json')}
+    expected_pack = {'resource_major': profile['resource'][0], 'resource_minor': profile['resource'][1],
+                     'data_major': profile['data'][0], 'data_minor': profile['data'][1]}
+    if version.get('id') != minecraft or version.get('pack_version') != expected_pack:
+        raise ValueError(f'Generator requires exact {minecraft} templates with pack formats {expected_pack}')
     if only is not None:
-        files = [p for p in files if p.stem in only]
-        if {p.stem for p in files} != only:
+        if not only.issubset(templates):
             raise ValueError('Requested template is not present')
+        templates = {name: raw for name, raw in templates.items() if name in only}
     # Validate every source before writing any generated file.
     entries = []
-    for file in files:
-        raw = file.read_bytes()
+    for name, raw in sorted(templates.items()):
         template = json.loads(raw)
-        variants = [transform(template, stage, file.stem) for stage in range(1, 13)]
-        entries.append((file.stem, raw, variants))
+        variants = [transform(template, stage, name) for stage in range(1, 13)]
+        entries.append((name, raw, variants))
     if not entries:
         raise ValueError('No vanilla biome templates found')
     output.mkdir(parents=True, exist_ok=True)
-    pack = {'pack': {'description': 'CESeasons original seasonal server biome variants (26.3)',
-                     'min_format': [121, 0], 'max_format': [121, 0]}}
+    pack = {'pack': {'description': f'CESeasons original seasonal server biome variants ({minecraft})',
+                     'min_format': profile['data'], 'max_format': profile['data']}}
     (output / 'pack.mcmeta').write_text(json.dumps(pack, indent=2) + '\n', encoding='utf-8')
-    manifest = {'schema': 1, 'minecraft': '26.3', 'data_format': [121, 0],
-                'resource_format': [97, 1], 'stages': 12, 'biomes': []}
+    manifest = {'schema': 1, 'minecraft': minecraft, 'data_format': profile['data'],
+                'resource_format': profile['resource'], 'stages': 12, 'biomes': []}
     for name, raw, variants in entries:
         directory = output / f'data/{NAMESPACE}/worldgen/biome/{name}'
         directory.mkdir(parents=True, exist_ok=True)
@@ -149,11 +167,13 @@ def generate(vanilla: Path, output: Path = OUTPUT, only: set[str] | None = None)
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--vanilla', required=True, type=Path)
-    parser.add_argument('--output', type=Path, default=OUTPUT)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--minecraft', choices=VERSIONS, default='26.3')
     parser.add_argument('--only', nargs='+', help='Smoke fixture only; omit for release generation')
     args = parser.parse_args()
-    result = generate(args.vanilla, args.output, set(args.only) if args.only else None)
-    print(f"Generated {len(result['biomes']) * 12} biomes; data 121.0, resource reference 97.1")
+    result = generate(args.vanilla, args.output, set(args.only) if args.only else None, args.minecraft)
+    print(f"Generated {len(result['biomes']) * 12} biomes for {args.minecraft}; "
+          f"data {result['data_format']}, resource reference {result['resource_format']}")
 
 
 if __name__ == '__main__':

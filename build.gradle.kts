@@ -16,7 +16,7 @@ java {
     withSourcesJar()
 }
 
-val paperVersion = "26.3.build.43-alpha"
+val paperVersion = providers.gradleProperty("paperVersion").getOrElse("26.1.2.build.74-stable")
 val craftEngineVersion = "26.9.1"
 
 dependencies {
@@ -53,7 +53,7 @@ tasks.jar {
     manifest.attributes(
         "Implementation-Title" to "CraftEngineSeasons",
         "Implementation-Version" to project.version,
-        "Minecraft-Version" to "26.3",
+        "Minecraft-Version" to "26.1.2,26.2,26.3",
         "CraftEngine-Version" to craftEngineVersion
     )
 }

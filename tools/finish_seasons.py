@@ -52,6 +52,11 @@ DEFAULT_COLORS = {
 }
 
 SEASONS = ("spring", "summer", "autumn", "winter")
+DATAPACKS = {
+    "26.1.2": ("season_datapack_26_1_2", [101, 1]),
+    "26.2": ("season_datapack_26_2", [107, 1]),
+    "26.3": ("season_datapack", [121, 0]),
+}
 ATTRIBUTE_KEYS = {
     "sky": "minecraft:visual/sky_color",
     "fog": "minecraft:visual/fog_color",
@@ -166,7 +171,8 @@ def main():
     pack = project / "content-pack/ce_seasons"
     assets = pack / "resourcepack/assets/ce_seasons"
     resources = project / "src/main/resources"
-    datapack = resources / "season_datapack"
+    datapacks = [(version, resources / name, data_format)
+                 for version, (name, data_format) in DATAPACKS.items()]
     colors_path = project / "tools/season-atmosphere.json"
     textures = (
         mod / "common/src/main/resources/assets/sereneseasons/textures"
@@ -177,19 +183,17 @@ def main():
         project / "build.gradle.kts",
         wrapper,
         pack / "pack.yml",
-        datapack / "pack.mcmeta",
         mod / "LICENSE",
     ):
         require(path.is_file(), f"缺少文件：{path}")
 
     require(textures.is_dir(), f"找不到模组贴图目录：{textures}")
 
-    metadata = read_json(datapack / "pack.mcmeta")["pack"]
-    minimum = metadata.get("min_format", metadata.get("pack_format"))
-    require(
-        minimum in (121, [121, 0]),
-        f"Expected data pack format 121.0, got {minimum!r}"
-    )
+    for version, datapack, data_format in datapacks:
+        metadata = read_json(datapack / "pack.mcmeta")["pack"]
+        require(metadata.get("min_format") == data_format
+                and metadata.get("max_format") == data_format,
+                f"Minecraft {version} requires data pack format {data_format}: {datapack}")
 
     colors = read_json(colors_path) if colors_path.exists() else DEFAULT_COLORS
     validate_colors(colors)
@@ -282,70 +286,48 @@ def main():
         ).encode("utf-8")
     )
     put(pack / "SS-SOURCE-LICENSE.txt", (mod / "LICENSE").read_bytes())
-    # 以插件自身索引为准，不根据名字猜测哪些群系启用季节。
-    indexes = list(resources.rglob("biomes.index"))
-    require(len(indexes) == 1,
-            f"需要唯一 biomes.index，实际找到 {len(indexes)} 个")
-
+    # 每个服务器版本只读取自己的索引，注册键可以跨数据包重复。
     biome_changes = {}
-    seen_keys = set()
-    row_count = 0
-
-    for number, line in enumerate(
-        indexes[0].read_text(encoding="utf-8-sig").splitlines(), 1
-    ):
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-
-        cells = [part.strip() for part in line.split("|")]
-        require(
-            len(cells) == 15,
-            f"biomes.index 第 {number} 行应有 15 列，实际为 {len(cells)} 列"
-        )
-        base, enabled_text, tropical_text, *keys = cells
-        require(base.startswith("minecraft:"),
-                f"索引中存在未支持的源群系：{base}")
-        enabled = parse_bool(enabled_text)
-        tropical = parse_bool(tropical_text)
-        row_count += 1
-
-        for stage, key in enumerate(keys):
-            require(key not in seen_keys, f"重复群系变体：{key}")
-            seen_keys.add(key)
-            require(
-                re.fullmatch(r"ceseasons:[a-z0-9_/-]+", key) is not None,
-                f"非法或非本插件群系 key：{key}"
-            )
-            namespace, name = key.split(":", 1)
-            require(
-                name.endswith(f"/stage_{stage + 1:02d}"),
-                f"群系阶段顺序异常：{key}"
-            )
-            path = datapack / f"data/{namespace}/worldgen/biome/{name}.json"
-            contained(path, datapack)
-            require(path.is_file(), f"缺少季节群系：{path}")
-            definition = read_json(path)
-
-            if not enabled:
+    for version, datapack, _ in datapacks:
+        index = datapack / "biomes.index"
+        require(index.is_file(), f"缺少 {version} 群系索引：{index}")
+        seen_keys = set()
+        changed = 0
+        for number, line in enumerate(index.read_text(encoding="utf-8-sig").splitlines(), 1):
+            line = line.strip()
+            if not line or line.startswith("#"):
                 continue
-
-            attributes = definition.setdefault("attributes", {})
-            require(isinstance(attributes, dict),
-                    f"群系 attributes 不是对象：{key}")
-
-            if tropical:
-                profile = colors["tropical"][stage // 2]
-            else:
-                profile = colors["temperate"][SEASONS[stage // 3]]
-
-            for short_name, attribute in ATTRIBUTE_KEYS.items():
-                attributes[attribute] = profile[short_name]
-
-            put_json(path, definition)
-            biome_changes[path] = definition
-
-    require(row_count > 0 and biome_changes, "没有可修改的季节群系")
+            cells = [part.strip() for part in line.split("|")]
+            require(len(cells) == 15,
+                    f"{version} biomes.index 第 {number} 行应有 15 列，实际为 {len(cells)} 列")
+            base, enabled_text, tropical_text, *keys = cells
+            require(base.startswith("minecraft:"), f"索引中存在未支持的源群系：{base}")
+            enabled = parse_bool(enabled_text)
+            tropical = parse_bool(tropical_text)
+            for stage, key in enumerate(keys):
+                require(key not in seen_keys, f"{version} 重复群系变体：{key}")
+                seen_keys.add(key)
+                require(re.fullmatch(r"ceseasons:[a-z0-9_/-]+", key) is not None,
+                        f"非法或非本插件群系 key：{key}")
+                namespace, name = key.split(":", 1)
+                require(name.endswith(f"/stage_{stage + 1:02d}"), f"群系阶段顺序异常：{key}")
+                path = datapack / f"data/{namespace}/worldgen/biome/{name}.json"
+                contained(path, datapack)
+                require(path.is_file(), f"缺少季节群系：{path}")
+                definition = read_json(path)
+                if not enabled:
+                    continue
+                attributes = definition.setdefault("attributes", {})
+                require(isinstance(attributes, dict), f"群系 attributes 不是对象：{key}")
+                profile = (colors["tropical"][stage // 2] if tropical
+                           else colors["temperate"][SEASONS[stage // 3]])
+                for short_name, attribute in ATTRIBUTE_KEYS.items():
+                    attributes[attribute] = profile[short_name]
+                put_json(path, definition)
+                biome_changes[path] = definition
+                changed += 1
+        require(changed > 0, f"{version} 没有可修改的季节群系")
+        print(f"Minecraft {version}：{len(seen_keys)} 个变体，更新 {changed} 个配色")
     require(len(imported_pngs) == 24, "导入贴图数量异常")
 
     print(f"项目：{project}")

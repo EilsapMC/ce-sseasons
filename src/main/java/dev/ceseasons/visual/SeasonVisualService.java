@@ -93,10 +93,10 @@ public final class SeasonVisualService implements AutoCloseable, Listener {
         if (closed) throw new IllegalStateException("Season visuals already closed");
         if (started) throw new IllegalStateException("Season visuals already started; use reload");
         validate(config);
-        if (!Bukkit.getMinecraftVersion().equals("26.3"))
-            throw new IllegalStateException("Season visuals require exact Minecraft 26.3, found " + Bukkit.getMinecraftVersion());
+        dev.ceseasons.platform.MinecraftVersion version =
+                dev.ceseasons.platform.MinecraftVersion.fromId(Bukkit.getMinecraftVersion());
         try {
-            definitions = BiomeMappings.read(getClass().getResourceAsStream("/season_datapack/biomes.index"));
+            definitions = BiomeMappings.read(getClass().getResourceAsStream("/" + version.datapackRoot() + "/biomes.index"));
             adapter = new BiomePacketAdapter();
             State next = prepare(config);
             for (World world : Bukkit.getWorlds()) cacheWorld(world);
@@ -120,7 +120,7 @@ public final class SeasonVisualService implements AutoCloseable, Listener {
             }
         } catch (ReflectiveOperationException | IOException | LinkageError error) {
             close();
-            throw new IllegalStateException("CESeasons cannot initialize 26.3 server biome/packet support", error);
+            throw new IllegalStateException("CESeasons cannot initialize 26.x server biome/packet support", error);
         } catch (RuntimeException error) {
             close();
             throw error;
@@ -244,7 +244,7 @@ public final class SeasonVisualService implements AutoCloseable, Listener {
                 session.user = cePlayer;
                 String encoder = channel.pipeline().names().stream()
                         .filter(name -> adapter.isEncoder(channel.pipeline().get(name))).findFirst()
-                        .orElseThrow(() -> new IllegalStateException("Exact 26.3 PacketEncoder missing from player pipeline"));
+                        .orElseThrow(() -> new IllegalStateException("Exact 26.x PacketEncoder missing from player pipeline"));
                 if (channel.pipeline().get(HANDLER) != null)
                     throw new IllegalStateException("Duplicate season biome channel handler");
                 session.handler = new BiomeHandler(session);
@@ -344,12 +344,12 @@ public final class SeasonVisualService implements AutoCloseable, Listener {
                 session.context = null;
                 ++session.connectionEpoch;
                 ctx.write(packet, promise);
-                // 26.3 reinserts its bundle unpacker immediately after the new encoder.
+                // 26.x reinserts its bundle unpacker immediately after the new encoder.
                 // Move only our own handler so unpacked biome packets cannot bypass it.
                 try {
                     String encoder = ctx.pipeline().names().stream()
                             .filter(name -> adapter.isEncoder(ctx.pipeline().get(name))).findFirst()
-                            .orElseThrow(() -> new IllegalStateException("26.3 PacketEncoder missing after reconfiguration"));
+                            .orElseThrow(() -> new IllegalStateException("26.x PacketEncoder missing after reconfiguration"));
                     if (ctx.pipeline().get(HANDLER) != this)
                         throw new IllegalStateException("Season handler ownership changed during reconfiguration");
                     ctx.pipeline().remove(this);
@@ -366,7 +366,7 @@ public final class SeasonVisualService implements AutoCloseable, Listener {
                     try {
                         WorldIdentity identity = protocolWorlds.get(session.user.clientSideWorld());
                         if (identity == null || !adapter.dimension(packet).equals(identity.dimension()))
-                            throw new IllegalStateException("CE protocol dimension did not follow 26.3 login/respawn barrier");
+                            throw new IllegalStateException("CE protocol dimension did not follow 26.x login/respawn barrier");
                         session.updateContext();
                     } catch (Throwable failure) { ctx.close(); fail(failure); }
                 }

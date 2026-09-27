@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.IntUnaryOperator;
 
-/** Exact 26.3 reflection boundary; no compile dependency on NMS or mutation of shared packets. */
+/** Shared 26.1.2/26.2/26.3 boundary, verified against native codecs at startup; no shared packet mutation. */
 public final class BiomePacketAdapter {
     private final Class<?> packetType;
     private final Class<?> encoderType;
@@ -44,11 +44,16 @@ public final class BiomePacketAdapter {
         respawnSpawn = respawnType.getMethod("commonPlayerSpawnInfo");
         Class<?> spawnType = Class.forName("net.minecraft.network.protocol.game.CommonPlayerSpawnInfo");
         spawnDimension = spawnType.getMethod("dimension");
-        keyIdentifier = Class.forName("net.minecraft.resources.ResourceKey").getMethod("identifier");
+        Class<?> keyType = Class.forName("net.minecraft.resources.ResourceKey");
+        Class<?> identifierType = Class.forName("net.minecraft.resources.Identifier");
+        keyIdentifier = keyType.getMethod("identifier");
         if (chunks.getReturnType() != List.class || position.getReturnType() != posType
-                || buffer.getReturnType() != byte[].class) {
-            throw new NoSuchMethodException("Unexpected 26.3 biome packet record signatures");
+                || buffer.getReturnType() != byte[].class || loginSpawn.getReturnType() != spawnType
+                || respawnSpawn.getReturnType() != spawnType || spawnDimension.getReturnType() != keyType
+                || keyIdentifier.getReturnType() != identifierType) {
+            throw new NoSuchMethodException("Unexpected biome packet/dimension record signatures");
         }
+        BiomeWireFormatProbe.verify();
     }
 
     public boolean isEncoder(Object handler) { return encoderType.isInstance(handler); }
@@ -71,7 +76,7 @@ public final class BiomePacketAdapter {
         }
         List<?> source = (List<?>) chunks.invoke(packet);
         if (source.size() > 4096 || sections <= 0 || sections > 1024) {
-            throw new IllegalArgumentException("Invalid 26.3 biome packet dimensions");
+            throw new IllegalArgumentException("Invalid biome packet dimensions");
         }
         List<Object> replacement = new ArrayList<>(source.size());
         boolean anyChanged = false;
